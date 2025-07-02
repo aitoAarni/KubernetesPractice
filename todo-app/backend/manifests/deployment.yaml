@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: todo-app
+    name: todo-app-backend
 
 spec:
     replicas: 1
     selector:
         matchLabels:
-            app: todo-app
+            app: todo-app-backend
     template:
         metadata:
             labels:
-                app: todo-app
+                app: todo-app-backend
 
         spec:
             containers:
-                - name: todo-app
-                  image: aitoaarni/todo-app
+                - name: todo-app-backend
+                  image: aitoaarni/todo-app:latest
