@@ -16,4 +16,6 @@ spec:
         spec:
             containers:
                 - name: hashgenerator
-                  image: aitoaarni/hash-timestamp
+                  image: aitoaarni/hash-timestamp:1.7
+                  ports:
+                      - containerPort: 8000

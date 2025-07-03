@@ -10,4 +10,4 @@ COPY timestamp.py .
 
 EXPOSE 8000
 
-CMD ["uvicorn", "timestamp.py", "--host", "127.0.0.1", "--port", "8000"]
+CMD ["uvicorn", "timestamp:app", "--host", "0.0.0.0", "--port", "8000"]
