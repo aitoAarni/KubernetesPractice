@@ -19,3 +19,4 @@
 [1.6.](https://github.com/aitoAarni/KubernetesPractice/tree/1.6/todo-app/frontend)
 
 [1.7.](https://github.com/aitoAarni/KubernetesPractice/tree/1.7/timestamp)
+
