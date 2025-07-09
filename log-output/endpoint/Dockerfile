@@ -6,8 +6,10 @@ WORKDIR /usr/src/app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY timestamp.py .
+COPY main.py .
+
+RUN mkdir volume
 
 EXPOSE 8000
 
-CMD ["uvicorn", "timestamp:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

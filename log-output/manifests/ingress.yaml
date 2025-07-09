@@ -10,7 +10,7 @@ spec:
                     pathType: Prefix
                     backend:
                         service:
-                            name: hashresponse-svc
+                            name: logoutput-svc
                             port:
                                 number: 2345
 

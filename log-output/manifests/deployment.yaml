@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: hashgenerator-dep
+
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: logoutput
+    template:
+        metadata:
+            labels:
+                app: logoutput
+
+        spec:
+            volumes:
+                - name: shared-file
+                  emptyDir: {}
+            containers:
+                - name: logoutput-endpoint
+                  image: aitoaarni/logoutput-endpoint:1.10
+                  ports:
+                      - containerPort: 8000
+                  volumeMounts:
+                      - name: shared-file
+                        mountPath: /usr/src/app/volume
+
+                - name: logoutput
+                  image: aitoaarni/logoutput:1.10
+
+                  volumeMounts:
+                      - name: shared-file
+                        mountPath: /usr/src/app/volume
