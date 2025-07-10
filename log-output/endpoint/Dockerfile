@@ -8,7 +8,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY main.py .
 
-RUN mkdir volume
+RUN mkdir volume && mkdir persistentVolume
 
 EXPOSE 8000
 

@@ -13,8 +13,15 @@ spec:
             labels:
                 app: pingpong
         spec:
+            volumes:
+                - name: persistent-volume
+                  persistentVolumeClaim:
+                      claimName: image-claim1
             containers:
                 - name: pingpong
-                  image: aitoaarni/ping-pong:1.9
+                  image: aitoaarni/ping-pong:1.11
                   ports:
                       - containerPort: 8000
+                  volumeMounts:
+                      - name: persistent-volume
+                        mountPath: /usr/src/app/persistentVolume
