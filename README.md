@@ -27,3 +27,5 @@
 ### Chapter 4
 
 [1.10.](https://github.com/aitoAarni/KubernetesPractice/tree/1.10/log-output)
+
+[1.11.](https://github.com/aitoAarni/KubernetesPractice/tree/1.11/log-output)
