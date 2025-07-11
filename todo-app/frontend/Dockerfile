@@ -5,6 +5,8 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
+ENV VITE_IMAGE_URL=http://localhost:8080/image
+
 COPY . .
 
 RUN npm run build
