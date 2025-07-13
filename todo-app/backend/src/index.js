@@ -7,7 +7,6 @@ import {
 } from "./utils.js"
 const PORT = process.env.PORT
 
-// console.log("Server started in port ", PORT)
 
 const imagePath = "volume/image.png"
 
@@ -15,7 +14,7 @@ const imageUrl = "https://picsum.photos/1200"
 
 const app = express()
 
-app.get("/image", async (req, res, next) => {
+app.get("/api/image", async (req, res, next) => {
     let image
     try {
         image = await getImage(imagePath)

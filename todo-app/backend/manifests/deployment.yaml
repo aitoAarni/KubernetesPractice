@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
     name: todo-app-backend
-
 spec:
     replicas: 1
     selector:
@@ -12,8 +11,16 @@ spec:
         metadata:
             labels:
                 app: todo-app-backend
-
         spec:
+            volumes:
+                - name: image-volume
+                  persistentVolumeClaim:
+                      claimName: image-claim
             containers:
                 - name: todo-app-backend
-                  image: aitoaarni/todo-app:latest
+                  image: aitoaarni/todo-app-backend:1.12
+                  volumeMounts:
+                      - name: image-volume
+                        mountPath: /app/volume
+                  ports:
+                      - containerPort: 3000

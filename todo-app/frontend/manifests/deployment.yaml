@@ -16,4 +16,4 @@ spec:
         spec:
             containers:
                 - name: todo-app-frontend
-                  image: aitoaarni/todo-app:1.5
+                  image: aitoaarni/todo-app-frontend:1.12.

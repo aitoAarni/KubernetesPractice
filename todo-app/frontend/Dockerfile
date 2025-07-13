@@ -5,7 +5,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
-ENV VITE_IMAGE_URL=http://localhost:8080/image
+ENV VITE_IMAGE_URL=http://localhost:8081/api/image
 
 COPY . .
 
@@ -24,4 +24,3 @@ ENV PORT=8080
 EXPOSE $PORT
 
 CMD [ "sh", "-c", "serve -s dist -l $PORT" ]
-
