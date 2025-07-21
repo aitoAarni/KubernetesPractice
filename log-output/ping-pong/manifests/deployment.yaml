@@ -19,7 +19,7 @@ spec:
                       claimName: image-claim1
             containers:
                 - name: pingpong
-                  image: aitoaarni/ping-pong:1.11
+                  image: aitoaarni/ping-pong:2.1.
                   ports:
                       - containerPort: 8000
                   volumeMounts:

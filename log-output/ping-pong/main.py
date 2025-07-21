@@ -24,3 +24,9 @@ def pingpong():
     response = f"pong {counter}"
     save_counter(str(counter))
     return {"message": response}
+
+@app.get("/pings")
+def pings():
+    counter = get_counter()
+    save_counter(str(counter))
+    return {"counter": str(counter)}

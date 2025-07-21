@@ -17,22 +17,16 @@ spec:
             volumes:
                 - name: shared-file
                   emptyDir: {}
-                
-                - name: persistent-volume
-                  persistentVolumeClaim:
-                    claimName: image-claim1
 
             containers:
                 - name: logoutput-endpoint
-                  image: aitoaarni/logoutput-endpoint:1.11
+                  image: aitoaarni/logoutput-endpoint:2.1
                   ports:
                       - containerPort: 8000
                   volumeMounts:
                       - name: shared-file
                         mountPath: /usr/src/app/volume
-
-                      - name: persistent-volume
-                        mountPath: /usr/src/app/persistentVolume
+                  imagePullPolicy: Always
 
                 - name: logoutput
                   image: aitoaarni/logoutput:1.10

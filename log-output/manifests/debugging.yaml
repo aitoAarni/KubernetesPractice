@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: debugging-pod
+    labels:
+        app: debugging-pod
+spec:
+    containers:
+        - name: ubuntu-container
+          image: nicolaka/netshoot
+          command:
+              - sleep
+              - "3600"
+          imagePullPolicy: IfNotPresent
+    restartPolicy: Always
