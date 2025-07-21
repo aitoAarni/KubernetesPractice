@@ -12,8 +12,6 @@
 
 [1.4.](https://github.com/aitoAarni/KubernetesPractice/tree/1.4/todo-app)
 
-### Chapter 3
-
 [1.5.](https://github.com/aitoAarni/KubernetesPractice/tree/1.5/todo-app/frontend)
 
 [1.6.](https://github.com/aitoAarni/KubernetesPractice/tree/1.6/todo-app/frontend)
@@ -24,8 +22,6 @@
 
 [1.9.](https://github.com/aitoAarni/KubernetesPractice/tree/1.9/ping-pong)
 
-### Chapter 4
-
 [1.10.](https://github.com/aitoAarni/KubernetesPractice/tree/1.10/log-output)
 
 [1.11.](https://github.com/aitoAarni/KubernetesPractice/tree/1.11/log-output)
@@ -33,3 +29,8 @@
 [1.12.](https://github.com/aitoAarni/KubernetesPractice/tree/1.12/todo-app)
 
 [1.13.](https://github.com/aitoAarni/KubernetesPractice/tree/1.13/todo-app)
+
+### Chapter 3
+
+[2.1.](https://github.com/aitoAarni/KubernetesPractice/tree/2.1/log-output)
+
