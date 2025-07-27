@@ -16,4 +16,5 @@ spec:
         spec:
             containers:
                 - name: todo-app-frontend
-                  image: aitoaarni/todo-app-frontend:1.13
+                  image: aitoaarni/todo-app-frontend:2.2
+                  imagePullPolicy: Always

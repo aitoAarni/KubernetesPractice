@@ -5,14 +5,21 @@ import {
     updateImage,
     updateImageTimestamp,
 } from "./utils.js"
+import cors from "cors"
+import noteRouter from "./routers/noteRouter.js"
 const PORT = process.env.PORT
-
 
 const imagePath = "volume/image.png"
 
 const imageUrl = "https://picsum.photos/1200"
 
 const app = express()
+
+app.use(cors())
+
+app.use(express.json())
+
+app.use("/api/notes", noteRouter)
 
 app.get("/api/image", async (req, res, next) => {
     let image
@@ -43,6 +50,10 @@ app.get("/api/image", async (req, res, next) => {
         }
     }
     return res.send(image)
+})
+
+app.use((req, res) => {
+    res.status(404).send("Not Found")
 })
 
 app.listen(PORT || 3000, () => {

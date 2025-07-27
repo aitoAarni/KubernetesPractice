@@ -1,2 +1,1 @@
-export const imageUrl =
-    import.meta.env.VITE_IMAGE_URL || "http://localhost:3000/image"
+export const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:3000/api"

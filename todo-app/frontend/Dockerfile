@@ -5,7 +5,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
-ENV VITE_IMAGE_URL=http://localhost:8081/api/image
+ENV VITE_API_URL=http://localhost:8081/api
 
 COPY . .
 
