@@ -39,3 +39,5 @@
 [2.3.](https://github.com/aitoAarni/KubernetesPractice/tree/2.3/log-output)
 
 [2.4.](https://github.com/aitoAarni/KubernetesPractice/tree/2.4/todo-app)
+
+[2.5.](https://github.com/aitoAarni/KubernetesPractice/tree/2.5/log-output)
