@@ -8,7 +8,7 @@ app = FastAPI()
 def get_stamp():
     text = ""
     with open("volume/log-output.txt") as f:
-        text = f.readline().replace("\n", "")
+        text = "".join(f.readlines())
     return text
 
 def get_pingpongs():
