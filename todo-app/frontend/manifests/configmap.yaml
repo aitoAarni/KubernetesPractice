@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: todo-app-frontend-config
+    namespace: project
+data:
+    PORT: "8080"

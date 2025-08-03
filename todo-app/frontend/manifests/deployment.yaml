@@ -17,5 +17,12 @@ spec:
         spec:
             containers:
                 - name: todo-app-frontend
-                  image: aitoaarni/todo-app-frontend:2.2
+                  image: aitoaarni/todo-app-frontend:2.6
                   imagePullPolicy: Always
+
+                  env:
+                      - name: PORT
+                        valueFrom:
+                            configMapKeyRef:
+                                name: todo-app-frontend-config
+                                key: PORT
