@@ -32,3 +32,13 @@ spec:
                             configMapKeyRef:
                                 name: todo-app-backend-config
                                 key: PORT
+                      - name: IMAGE_URL
+                        valueFrom:
+                            configMapKeyRef:
+                                name: todo-app-backend-config
+                                key: IMAGE_URL
+                      - name: IMAGE_PATH
+                        valueFrom:
+                            configMapKeyRef:
+                                name: todo-app-backend-config
+                                key: IMAGE_PATH

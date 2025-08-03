@@ -9,9 +9,13 @@ import cors from "cors"
 import noteRouter from "./routers/noteRouter.js"
 const PORT = process.env.PORT
 
-const imagePath = "volume/image.png"
+// const imagePath = "volume/image.png"
 
-const imageUrl = "https://picsum.photos/1200"
+const imagePath = process.env.IMAGE_PATH
+
+const imageUrl = process.env.IMAGE_URL
+
+// const imageUrl = "https://picsum.photos/1200"
 
 const app = express()
 

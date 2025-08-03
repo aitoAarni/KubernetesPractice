@@ -5,3 +5,5 @@ metadata:
     namespace: project
 data:
     PORT: "3000"
+    IMAGE_URL: "https://picsum.photos/1200"
+    IMAGE_PATH: "volume/image.png"
