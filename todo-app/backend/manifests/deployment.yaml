@@ -19,10 +19,16 @@ spec:
                       claimName: image-claim
             containers:
                 - name: todo-app-backend
-                  image: aitoaarni/todo-app-backend:2.2
+                  image: aitoaarni/todo-app-backend:2.6
                   imagePullPolicy: Always
                   volumeMounts:
                       - name: image-volume
                         mountPath: /app/volume
                   ports:
                       - containerPort: 3000
+                  env:
+                      - name: PORT
+                        valueFrom:
+                            configMapKeyRef:
+                                name: todo-app-backend-config
+                                key: PORT
