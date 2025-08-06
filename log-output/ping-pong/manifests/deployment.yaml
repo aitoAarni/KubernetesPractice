@@ -13,15 +13,26 @@ spec:
             labels:
                 app: pingpong
         spec:
-            volumes:
-                - name: persistent-volume
-                  persistentVolumeClaim:
-                      claimName: image-claim1
+            # volumes:
+            # - name: persistent-volume
+            #   persistentVolumeClaim:
+            #   claimName: image-claim1
             containers:
                 - name: pingpong
-                  image: aitoaarni/ping-pong:2.1.
+                  image: aitoaarni/ping-pong:2.7
                   ports:
                       - containerPort: 8000
-                  volumeMounts:
-                      - name: persistent-volume
-                        mountPath: /usr/src/app/persistentVolume
+                  env:
+                      - name: DB_HOST
+                        value: "postgres-svc"
+                      - name: DB_NAME
+                        value: "mydb"
+                      - name: DB_USER
+                        value: "myuser"
+                      - name: DB_PASSWORD
+                        value: "mypassword"
+                      - name: DB_PORT
+                        value: "5432"
+                #   volumeMounts:
+                #   - name: persistent-volume
+                # mountPath: /usr/src/app/persistentVolume
