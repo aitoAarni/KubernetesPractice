@@ -7,3 +7,8 @@ data:
     PORT: "3000"
     IMAGE_URL: "https://picsum.photos/1200"
     IMAGE_PATH: "volume/image.png"
+    DB_HOST: "postgres-svc"
+    DB_PORT: "5432"
+    DB_USER: "myuser"
+    DB_PASSWORD: "mypassword"
+    DB_NAME: "mydb"

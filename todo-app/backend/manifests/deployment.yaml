@@ -19,7 +19,7 @@ spec:
                       claimName: image-claim
             containers:
                 - name: todo-app-backend
-                  image: aitoaarni/todo-app-backend:2.6
+                  image: aitoaarni/todo-app-backend:2.8
                   imagePullPolicy: Always
                   volumeMounts:
                       - name: image-volume
@@ -42,3 +42,28 @@ spec:
                             configMapKeyRef:
                                 name: todo-app-backend-config
                                 key: IMAGE_PATH
+                      - name: DB_HOST
+                        valueFrom:
+                            configMapKeyRef:
+                                name: todo-app-backend-config
+                                key: DB_HOST
+                      - name: DB_PORT
+                        valueFrom:
+                            configMapKeyRef:
+                                name: todo-app-backend-config
+                                key: DB_PORT
+                      - name: DB_USER
+                        valueFrom:
+                            configMapKeyRef:
+                                name: todo-app-backend-config
+                                key: DB_USER
+                      - name: DB_PASSWORD
+                        valueFrom:
+                            configMapKeyRef:
+                                name: todo-app-backend-config
+                                key: DB_PASSWORD
+                      - name: DB_NAME
+                        valueFrom:
+                            configMapKeyRef:
+                                name: todo-app-backend-config
+                                key: DB_NAME

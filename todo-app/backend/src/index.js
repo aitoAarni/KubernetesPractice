@@ -6,6 +6,7 @@ import {
     updateImageTimestamp,
 } from "./utils.js"
 import cors from "cors"
+import { initializeDb } from "./db.js"
 import noteRouter from "./routers/noteRouter.js"
 const PORT = process.env.PORT
 
@@ -60,6 +61,8 @@ app.use((req, res) => {
     res.status(404).send("Not Found")
 })
 
-app.listen(PORT || 3000, () => {
-    console.log(`Server is running on port ${PORT || 3000}`)
+initializeDb().then(() => {
+    app.listen(PORT || 3000, () => {
+        console.log(`Server is running on port ${PORT || 3000}`)
+    })
 })
