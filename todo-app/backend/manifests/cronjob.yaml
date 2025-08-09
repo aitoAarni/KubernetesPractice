@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+    name: wikipedia-todo
+    namespace: project
+spec:
+    schedule: "0 * * * *" # Every hour at minute 0
+    jobTemplate:
+        spec:
+            template:
+                spec:
+                    containers:
+                        - name: wikipedia-todo
+                          image: curlimages/curl:8.8.0
+                          command: ["/bin/sh", "-c"]
+                          args:
+                              - |
+                                  # Get random Wikipedia article URL
+                                  URL=$(curl -s -I -L -o /dev/null -w '%{url_effective}' https://en.wikipedia.org/wiki/Special:Random)
+
+                                  echo "Picked random article: $URL"
+
+                                  # Send todo to backend
+                                  curl -s -X POST \
+                                       -H "Content-Type: application/json" \
+                                       -d "{\"data\": \"Read $URL\"}" \
+                                       http://todo-app-backend-svc:3000/api/notes
+                    restartPolicy: OnFailure
