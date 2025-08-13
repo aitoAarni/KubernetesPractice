@@ -4,10 +4,10 @@ metadata:
     name: pingpong-svc
     namespace: exercises
 spec:
-    type: ClusterIP
+    type: LoadBalancer # This should be the only unfamiliar part
     selector:
         app: pingpong
     ports:
-        - port: 5678
-          targetPort: 8000
+        - port: 80
           protocol: TCP
+          targetPort: 8000

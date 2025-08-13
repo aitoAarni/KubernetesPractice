@@ -32,13 +32,12 @@ spec:
                   volumeMounts:
                       - name: postgres-data-storage
                         mountPath: /var/lib/postgresql/data
-
     volumeClaimTemplates:
         - metadata:
               name: postgres-data-storage
           spec:
               accessModes: ["ReadWriteOnce"]
-              storageClassName: local-path
+              storageClassName: standard-rwo # changed from local-path
               resources:
                   requests:
                       storage: 100Mi
