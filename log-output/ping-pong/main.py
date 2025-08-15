@@ -105,6 +105,11 @@ def save_counter(counter_value: int):
 async def startup_event():
     init_database()
 
+@app.get("/")
+def health_check():
+    """Health check endpoint for Ingress and load balancer probes"""
+    return {"status": "healthy", "service": "pingpong"}
+
 
 @app.get("/pingpong")
 def pingpong():

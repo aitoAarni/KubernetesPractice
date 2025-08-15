@@ -18,7 +18,7 @@ spec:
                 - name: postgres
                   image: postgres:16
                   ports:
-                      - name: web
+                      - name: postgres
                         containerPort: 5432
                   env:
                       - name: POSTGRES_DB
@@ -32,27 +32,34 @@ spec:
                   volumeMounts:
                       - name: postgres-data-storage
                         mountPath: /var/lib/postgresql/data
+                  # Add readiness probe to ensure DB is ready before pingpong connects
+                  readinessProbe:
+                      exec:
+                          command:
+                              - pg_isready
+                              - -U
+                              - myuser
+                              - -d
+                              - mydb
+                      initialDelaySeconds: 15
+                      periodSeconds: 5
+                  livenessProbe:
+                      exec:
+                          command:
+                              - pg_isready
+                              - -U
+                              - myuser
+                              - -d
+                              - mydb
+                      initialDelaySeconds: 30
+                      periodSeconds: 10
     volumeClaimTemplates:
         - metadata:
               name: postgres-data-storage
           spec:
               accessModes: ["ReadWriteOnce"]
-              storageClassName: standard-rwo # changed from local-path
+              storageClassName: standard-rwo
+
               resources:
                   requests:
                       storage: 100Mi
----
-apiVersion: v1
-kind: Service
-metadata:
-    name: postgres-svc
-    namespace: exercises
-    labels:
-        app: postgres
-spec:
-    ports:
-        - port: 5432
-          name: web
-    clusterIP: None
-    selector:
-        app: postgresapp

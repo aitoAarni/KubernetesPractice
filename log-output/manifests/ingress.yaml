@@ -3,6 +3,10 @@ kind: Ingress
 metadata:
     name: dwk-material-ingress
     namespace: exercises
+
+    annotations:
+        # Enable GKE Ingress
+        kubernetes.io/ingress.class: "gce"
 spec:
     rules:
         - http:
